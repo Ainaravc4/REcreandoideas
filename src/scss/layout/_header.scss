@@ -1,0 +1,67 @@
+.menu{
+    display: grid;
+    @media(min-width: 576px){
+        width: 100%;
+    }
+    @media(min-width: 992px){
+        width: 100%;
+    }
+    
+    grid-template-rows: repeat(2, min-content);
+    .cliente{
+        grid-column: 1/-1;
+        @include flexFlow(row wrap);
+        @include flexposition(flex-end,center);
+        
+    }
+    .opciones{
+        @include flexFlow(row wrap);
+        @include flexposition(flex-end,center);
+        margin-right: 3rem;
+    }
+}
+.navbar{
+    background-image: url(../images/menu.png);
+    background-size:cover;
+    &-brand{
+        height: 15rem;
+
+        img{
+            width: 8rem ;
+            margin-top: 1.5rem;
+            margin-left: 4rem;
+        }
+    }
+    &-toggler{
+        &-icon{
+            background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 30 30'><path stroke='white' stroke-linecap='round' stroke-miterlimit='10' stroke-width='5' d='M4 7h22M4 15h22M4 23h22'/></svg>") !important;
+        }
+    }
+}
+.navbar-nav{
+    @media(min-width: 300px){
+        background-color: rgba(color(secundario), 0.3);
+    }
+    @media(min-width: 576px){
+        background-color: transparent;
+    }
+    
+}
+.nav-item{
+    text-align: left;
+    margin-right: 4rem;
+    margin-top: 1.5rem !important;
+    &-link{
+        @include tamañoLetra;
+        color: white !important;
+        &:hover{
+            text-decoration: none !important;
+            color:white !important;
+            @include hoverLetra ;
+        }
+    }
+}
+
+.usuario{
+    margin-bottom: 5rem;
+}

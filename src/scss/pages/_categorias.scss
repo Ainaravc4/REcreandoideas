@@ -1,0 +1,70 @@
+.seccionCategorias{
+    .subtitulos{
+        margin-bottom: 2rem;
+    }
+    ul{
+        text-decoration: none;
+        list-style: none;
+        @include flexFlow;
+        @include flexposition;
+        
+    }
+
+    &-li{
+        margin-bottom: 2rem;
+        @include flexFlow(row wrap);
+        @include flexposition(space-between,center);
+        background-color: color(categorias);
+        width: 70%;
+        height: 50rem;
+        @include response(md){
+            width: 90%;
+        }
+        @include response(sm){
+            width: 100%;
+            flex-flow: column;
+            height: 70rem
+        }
+        &-img{
+            width: 47rem;
+            height: 44rem;
+            @include response(md){
+                width: 38rem;
+                height: 32rem;
+            }
+        }
+        &-div{
+            @include flexFlow;
+            @include flexposition;
+            button{
+                background-color: color(enfasis);
+                border-radius: 5px;
+                border: none;
+                width: 20rem;
+                height: 4.5rem;
+                @include response(sm){
+                    height: 7.5rem;
+                }
+                a{
+                    margin: 0% !important;
+                    padding: 0% !important;
+                    text-decoration: none;
+                    color: white;
+                    @include tamañoLetra
+                }
+                &:hover{
+                    background-color: color(principal);
+                }
+            }
+            p{
+                margin:1rem;
+                text-align: center;
+                @include tamañoLetra;
+            }
+        }
+    }
+    &-li:nth-child(even){
+        background-color: color(secundario);
+    }
+
+}

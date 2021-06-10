@@ -1,0 +1,67 @@
+//utilizamos el mixin tamanofuente para definir el tamaño de letra general
+@mixin tamañoLetra {
+   @include tamanofuente(2rem,1.5rem,1.8rem,1.9rem);
+}
+@mixin hoverLetra {
+    @include tamanofuente(2.3rem,1.7rem,2rem,2.3rem);
+}
+
+//hacemos flex con parametros por defecto cetrados
+@mixin flexposition($justifycontent:center, $alignitem:center) {
+    
+    justify-content:$justifycontent ;
+    align-items: $alignitem ;
+}
+
+//hacemos el flow por defecto column
+@mixin flexFlow($flow:column) {
+    display: flex;
+    flex-flow:$flow ;
+}
+
+//estructuramos las media query
+@mixin response($breakpoint) {
+    @if($breakpoint==xl){
+        @media(max-width:1200px){
+            @content;
+        }
+    }
+    @if($breakpoint==lg){
+        @media(max-width:992px){
+            @content;
+        }
+    }
+    @if($breakpoint==md){
+        @media(max-width:768px){
+            @content;
+        }
+    }
+    @if($breakpoint==sm){
+        @media(max-width:576px){
+            @content;
+        }
+    }
+}
+
+
+@mixin tamanofuente($xs,$sm,$md,$lg){
+    @media(min-width: 200px){
+        font-size: $xs !important;
+    }
+    @media(min-width: 576px){
+        font-size: $sm !important;
+    }
+    @media(min-width: 768px){
+        font-size: $md !important;
+    }
+    @media(min-width: 992px){
+        font-size: $lg !important;
+    }
+}
+
+@mixin subtitulos {
+    color: color(principal);
+    font-size: xx-large;
+    text-align: center;
+}
+

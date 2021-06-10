@@ -1,0 +1,63 @@
+.informacion{
+    @include flexFlow();
+    @include flexposition();
+    
+    .contenido{
+        justify-self: center;
+        align-self: center;
+        width: 80%;
+        @media (min-width:992px) {
+            width: 50%;
+        }
+        @include tamañoLetra();
+        h1.titulo{
+            margin-top: 10rem;
+            margin-bottom: 4rem;
+            text-align: center;
+            font-size: 4rem;
+            font-weight: bold;
+            color: color(principal);
+        }
+    }
+    &-video{
+        @include flexFlow();
+        @include flexposition();
+        margin-top: 3rem;
+        iframe{
+            @media (min-width:350px) {
+                width: 100%;
+            }
+            @media (min-width:992px) {
+                width: 100%;
+                height: 40rem;
+            }
+        }
+       
+    }
+    &-trabajadores{
+        margin-top: 8rem;
+        @include flexFlow(row wrap);
+        @include flexposition();
+        width: 100%;
+        &-puesto{
+            text-align: center;
+            margin: 3rem;
+            img:not(.mio){
+                width: 18rem;
+                height: 22rem;
+                margin-bottom: 2rem;
+                border-radius: 100px;
+            }
+            .mio{
+                width: 17.5rem;
+                height: 23rem;
+                margin-bottom: 2rem;
+                border-radius: 100px;
+            }
+            h3{
+                font-size: 70%;
+                opacity: 0.5;
+            }
+        }
+    }
+}

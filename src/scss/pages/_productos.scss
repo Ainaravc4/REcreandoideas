@@ -1,0 +1,46 @@
+.pro{
+    text-decoration: none !important;
+}
+.productsHome{
+    margin-top: 10rem;
+}
+.productosL{
+    @include flexFlow(row wrap);
+    @include flexposition;
+    margin: 2rem;
+    width: 100%;
+    text-decoration: none !important;
+}
+
+.listaProductos{
+    @include flexFlow;
+    border: transparent !important;
+    width: 30rem;
+    @include tamañoLetra;
+    margin: 2rem;
+    border-radius: 25px !important;
+    &:hover{
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        width: 31rem;
+        height: 33rem;
+        background-color: darken(color(secundario), 8) ;
+        
+    }
+    img{
+        border-radius: 25px;
+        height: 23rem;
+    }
+    &-precio, &-nombre{
+        text-decoration: none;
+        
+        color: color(principal);
+        font-weight: bold;
+       
+    }
+    
+}
+.relacionados{
+    color: color(principal);
+    margin-top:5rem;
+    margin-left: 10rem;
+}

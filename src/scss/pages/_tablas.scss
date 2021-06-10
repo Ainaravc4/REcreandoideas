@@ -1,0 +1,289 @@
+.tabla{
+    //estructuramos la seccion de carrito y panel en filas y columnas con grid
+    display: grid;
+    grid-template-columns: minmax(6rem, 1fr) repeat(8, minmax(min-content, 16rem)) minmax(6rem, 1fr);
+    grid-template-rows: repeat(6, min-content);
+    grid-row-gap: 1.6rem;
+    width: 100%;
+    //situamos el titulo en el centro
+    &-titulo{
+        grid-column: 1 / -1;
+        grid-row: 3 / 4;
+        font-family: $font-dancing;
+        font-size: size(xl);
+        text-align: center;
+        font-weight: bold;
+        color: color(principal) ;
+    }
+    //las filas ocuparan de la columna de la 2 a la 10 excepto en pantallas pequeñas
+    &-productos{
+        grid-row: 6 / 7;
+
+        
+        @media (min-width:400px) {
+            grid-column: 1 / 10;
+        }
+        @media (min-width:576px) {
+            grid-column: 2 / 10;
+        }
+        th,td {
+            //damos tamaño de letra segun la pantalla
+            @include tamanofuente(1.5rem,1.6rem,1.7rem,2rem);
+            padding: 1rem;
+        }
+        td{
+            img{
+                width: 9rem;
+                @include response(lg){
+                    width: 8rem;
+                }
+                @include response(md){
+                    width: 6rem;
+                }
+                @include response(sm){
+                    width: 4rem;
+                }
+                
+                
+            }
+            input:not(input[type=number]){
+                display: flex;
+                @include flexFlow;
+                font-size: 1rem;
+                margin-right: 1rem;
+                
+            }
+            input[type=file]{
+                color:transparent;
+                
+                
+            }
+            i:hover{
+                cursor: pointer;
+                font-size: 2.2rem;
+
+            }
+        }
+        //damos estilo a la tabla para que el color de las filas se vayan alterenando
+        tr:nth-child(even){
+            background-color: rgba(color(principal), 0.15);
+        }
+        img{
+            width: 15%;
+        }
+    }
+    &-btn{
+        border: none;
+        border-radius: 10px;
+        width: 15rem;
+        height: 5rem;
+        margin: auto;
+        margin-bottom: 1rem;
+        grid-column: 1 / -1;
+        grid-row: 7 / 8;
+        @include tamanofuente(1.3rem,1.5rem,1.8rem,1.9rem);
+        background-color: color(principal);
+            color: white;
+            &:hover{
+                background-color: color(enfasis);
+            }
+    }
+    &-create{
+        //situamos el boton que hay en la vista panel en el centro y debajo de la tabla
+        margin: auto;
+        grid-column: 1 / -1;
+        grid-row: 5 / 6;
+        
+        i{
+            color: color(btnCreate);
+            @include tamanofuente(4rem,5rem,6rem,7rem);
+            &:hover{
+                color: lighten(color(btnCreate), 20%);
+            }
+        }
+    }
+    &-form{
+        background-color: color(secundario);
+        width: 100%;
+        //volvemos a situar el formulario de creacion en el centro debajo del boton
+        grid-column: 1 / 10;
+        @media (min-width:400px) {
+            grid-column: 1 / 10;
+        }
+        @media (min-width:576px) {
+            grid-column: 2 / 10;
+        }
+        
+        grid-row: 4 / 5;
+        @include flexposition();
+        @include flexFlow();
+        
+        border: 2px solid color(principal);
+        border-radius: 10px;
+        div{
+            
+            //indicamos que es flex y que se distribuya en space-between
+            
+            @media (min-width:400px) {
+                width: 90%;
+                @include flexFlow(column );
+                @include flexposition();
+            }
+            @media (min-width:576px) {
+                width: 50%;
+                @include flexFlow(row wrap);
+                @include flexposition(space-between, none);
+            }
+            @include tamanofuente(1.5rem,1.6rem,1.7rem,2rem);
+
+            input, label, select,textarea{
+                margin-top:2rem;
+                width: 25rem;
+                @media (min-width:576px) {
+                    width: 31rem;
+                }
+            }
+            input, select{
+                height: 4rem;
+            }
+            label{
+                font-weight: bold;
+            }
+            .img{
+                img{
+                    width: 10rem;
+                    height: 10rem;
+                    @media (min-width:992px) {
+                        width:18rem;
+                        height: 18rem;
+                    }
+                }
+            }
+            
+            button{
+                background-color: color(principal);
+                color: white;
+                width: 10rem;
+                height: 4rem;
+                border-radius: 7px;
+                border: none;
+                margin-top: 4rem;
+                margin-bottom: 2rem;
+                &:hover{
+                    background-color: color(enfasis);
+                }
+            }
+            .ora{
+                background-color: rgb(233, 191, 112);
+                &:hover{
+                    background-color: rgb(255, 211, 129);
+                }
+            }
+        }
+        h1{
+            font-size: 3.5rem;
+        }
+    }
+}
+.g1{
+    margin-right: 5rem;
+    
+}
+.compras,.ingresos{
+    width: 100%;
+    @include flexFlow();
+    @include flexposition;
+    .cambioGrafico{
+        align-self: flex-start;
+        background-color: color(principal);
+        color: white;
+        width: 15rem;
+        height: 4rem;
+        border-radius: 7px;
+        border: none;
+        margin-top: 4rem;
+        margin-bottom: 2rem;
+        &:hover{
+            background-color: color(enfasis);
+        }
+    }
+    .grafico{
+        @include flexFlow();
+        @include flexposition();
+        
+       .g{
+        width: 400px;
+        height: 200px;
+        margin-right: 18rem;
+        @media (min-width:576px) {
+            width: 600px;
+            height: 400px;
+            margin-right:0%;
+        }
+        @media (min-width:992px) {
+            width: 1500px;
+            height: 500px;
+            margin-right:0%;
+        }
+            
+       }
+        
+    }
+    .gastosTotal{
+        text-align: center;
+        margin-right: 5rem;
+        font-size: 205%;
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+        color: color(principal);
+    }
+    #accordion{
+        margin-right: 7rem;
+        cursor: pointer;
+        width: 100%;
+        .card-header{
+
+            background-color: rgba( color(principal), 0.3);
+            h1{
+                text-align: center !important;
+                
+            button{
+                color: white;
+                font-weight: bold;
+                text-decoration: none;
+                @include tamañoLetra();
+            }
+            :hover{
+                background-color: rgba( color(principal), 0.5);
+            }
+        }
+        }
+        .card-body{
+            
+            .imgCompra{
+                    margin: 1rem;
+                    width: 15rem;
+                    @include response(lg){
+                        width: 13rem;
+                    }
+                    @include response(md){
+                        width: 10rem;
+                    }
+                    @include response(sm){
+                        width: 8rem;
+                    }
+            }
+            tr{
+                border-top: 2px solid color(principal);               
+            }
+            th,td{
+                text-align: center;
+            }
+            td{
+                width: 10%;
+               
+            }
+            
+        }
+    }
+}

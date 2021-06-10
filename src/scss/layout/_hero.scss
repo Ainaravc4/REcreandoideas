@@ -1,0 +1,28 @@
+.hero{
+    //colocamos el hero dentro del contenedor tabla que contiene las vistas panel y carrito
+  
+    width: 100%;
+    height: 25vh;
+    
+    @media (min-width:576px) {
+        height: 35vh;
+        width: 100%;
+    }
+    @media (min-width:992px) {
+        height: 45vh;
+    }
+    
+    &-slide{
+        @include flexFlow();
+        @include flexposition();
+        @media (min-width:992px) {
+            height: 45vh;
+        }
+        img{
+            width: 85%;
+            @media (min-width:992px) {
+                width: 55%;
+            }
+        }
+    }
+}

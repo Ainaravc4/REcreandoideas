@@ -1,0 +1,36 @@
+.tabsDinamicas{
+    @include flexFlow;
+    @include flexposition(start,none);
+    width: 100%;
+    margin-top: 5rem
+}
+.pestañas{
+    @include tamañoLetra ;
+    margin-left: 5rem;
+    a{
+        color: black;
+        font-weight: bold;
+    }
+    
+}
+.tab-content{
+    margin-left: 10rem;
+    margin-top: 2rem;
+    @include tamañoLetra;
+    h1{
+        color: color(principal);
+        margin-bottom: 2rem;
+    }
+    .contenedor-video{
+       
+        iframe{
+            width: 95%;
+            @media(min-width:576px){
+                width: 90%;
+            }
+            @media(min-width:992px){
+                width: 45%;
+            }
+        }
+    }
+}

@@ -1,0 +1,78 @@
+
+/*Editamos la ventana modal dandole un ancho*/
+.modal-content{
+    margin:auto;
+    width: 100% !important;
+    background-color: darken(color(secundario), 3)  !important;
+    @media(min-width:576px){
+       width: 60rem !important;
+     
+    }
+    @media(min-width:992px){
+       width: 60rem !important;
+    }
+}
+
+/*Distrubuir el contenido del modal en dos columnas uno con un formulario y otro con una lista*/
+.modal-body{
+   //lo hacemos flex para centrarlo
+    @include flexposition(space-around, center);
+    @include flexFlow(row);
+
+    //Le damos tamaño a la fuente dependiendo del tamaño de pantalla
+    @include tamanofuente(12px,14px,16px,18px);
+
+    &-form{
+        //lo hacemos flex para centrarlo
+        @include flexposition();
+        @include flexFlow();
+
+        p{
+            margin-top: 2rem !important;
+            text-decoration: underline;
+            color: blue;
+            &:hover{
+                color: rgb(0, 128, 255);
+                cursor: pointer;
+            }
+        }
+        &-button{
+            margin-top: 2rem !important;
+            border: none;
+            width: 15rem;
+            height: 3.5rem;
+            border-radius: 10px;
+            //escogemos un color ya predefinido
+            background-color: color(btnCreate);
+            color: white;
+            &:hover{
+                background-color: lighten(color(btnCreate), 20%);
+            }
+        }
+    }
+    &-redes li{
+        list-style: none;
+        //utilizamos el mixin que tiene los tamaños de letras segun la patalla
+        @include tamanofuente(12px,14px,16px,18px);
+       
+        .social-media-link{
+            list-style: none;
+            margin-right: 1rem;
+        }
+        :hover{
+            text-decoration: underline; 
+        }
+    }
+
+}
+
+// creamos un bucle para recorrer la lista y darle a los iconos un color diferente
+@each $item, $valor in $socialMediaColors1{
+    .social-media-item:nth-child(#{$item}) .social-media-link{
+        color: $valor;
+    }
+    .social-media-item:nth-child(#{$item}):hover .social-media-link{
+        color: lighten( $valor, 30);
+        
+    }
+}

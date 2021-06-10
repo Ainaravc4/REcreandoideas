@@ -1,0 +1,104 @@
+.home{
+    @include flexposition();
+    @include flexFlow();
+
+    .queHacemos{
+    /*la distribucion de este contenedor es diferente al de
+     novedades ya que lo vamos a hacer row*/
+       a{
+        color: color(principal);
+        font-weight: bold;
+       }
+       a:hover{
+        color: white;
+        text-decoration: none;
+       }
+        margin-top: 4rem;
+        
+        @media(min-width:576px){
+            width: 100%;
+        }
+        @media(min-width:992px){
+            width: 60%;
+        }
+
+        @include flexposition();
+        @include flexFlow(row wrap);
+
+        &-body{
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            width: 40rem;
+            height: 30rem;
+            margin: auto;
+            margin-bottom: 2rem;
+            background-color: color(secundario);
+            @include flexposition();
+            @include flexFlow();
+
+            &:hover{
+                background-color: color(principal);
+            }
+            &-img{
+            width: 80%;
+            
+            }
+            &-titulo{
+                margin-top: 1.5rem;
+                @include tamañoLetra();
+            }
+        }
+    
+    }
+
+    .informacion{
+        margin-top: 9rem;
+        width: 100%;
+        height: 70vh;
+        @media (min-width:350px) {
+            height: 80vh;
+        }
+        @media (min-width:575px) {
+            height: 70vh;
+        }
+        background-color: color(secundario);
+        @include flexposition();
+        @include flexFlow();
+        .contenedor{
+            width: 75%;
+
+            @include flexposition(space-around,center);
+            @include flexFlow(row wrap);
+            .parte{
+                @media(min-width:576px){
+                    width: 100%;
+                }
+                @media(min-width:992px){
+                    width: 50%;
+                }
+
+            }
+            &-texto{   
+                &-info{
+                    margin-right: 2rem;
+                    @include tamañoLetra();
+                }
+                    
+                
+            }
+            &-video{
+                iframe{
+                    @media (min-width:350px) {
+                        width: 100%;
+                    }
+                    @media (min-width:992px) {
+                        width: 100%;
+                        height: 40rem;
+                    }
+                }
+            }
+        }
+        
+
+        
+    }
+}

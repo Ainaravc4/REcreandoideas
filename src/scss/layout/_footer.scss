@@ -1,0 +1,58 @@
+.footer{
+    background-image: linear-gradient(white, color(secundario),rgba(color(principal),0.4),rgba(color(principal),0.7)) ;
+    width: 100%;
+    padding: 30px 0;
+    margin-top: 10rem;
+    //le indicamos que sea flex y se distribuya en forma de columna
+    @include flexposition(center,none);
+    @include flexFlow(row  wrap);
+
+    @media(min-width: 576px){
+        padding: 70px 0;
+    }
+    &-nav-wrapper{
+        width: 50%;
+    }
+    &-nav{
+        
+        @include flexFlow();
+        @include tamañoLetra;
+        a{
+            color: black;
+            margin: 0px;
+        }
+        &-item{
+            margin: 0px;
+            text-align: left;
+            :hover{
+                text-decoration: none;
+                font-size: 92%;
+                color: black;
+            }
+        }
+        &-link{
+            margin: 0px;
+            text-align: left;
+        }
+        
+    }
+    .social-media{
+        @include flexFlow();
+    }
+    .social-icon-link{
+        @include tamañoLetra();
+    }
+    .tituloFooter{
+        text-shadow:2px 2px 2px gray;
+    }
+}
+// creamos un bucle para recorrer la lista y darle a los iconos un color diferente
+@each $item, $valor in $socialMediaColors1{
+    .social-icon-item:nth-child(#{$item}) .social-icon-link{
+        color: $valor;
+        &:hover{
+            color: lighten($valor, 30%) ;
+            text-decoration: none;
+        }
+    }
+}
